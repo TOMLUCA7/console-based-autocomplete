@@ -1,44 +1,49 @@
-import readline from 'readline';
+import promptSync from 'prompt-sync';
 import { AutoCompleteTrie } from './model/Trie.js';
 import { ui } from './view/ui.js';
 
+const prompt = promptSync(); 
 const trie = new AutoCompleteTrie();
-
- 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
 
 ui.printWelcome();
 
+let running = true;
 
-const handleInput = (input) => {
-    const command = input;
-    switch (command) {
+while (running) {
+    const input = prompt("> ")
+    const [command, arg] = input.split(' ');
+
+    switch (command.toLowerCase()) {
         case "help":
             ui.printHelp();
             break;
+
         case "add":
-            rl.question("Enter a word: ", (word) => {
-                trie.addWord(word);
-                ui.printAdded(word);
-            });
+            if (arg) {
+                trie.addWord(arg);
+                ui.printAdded(arg);
+            }
             break;
+
         case "find":
-            rl.question("Enter a word: ", (word) => {
-                ui.printFound(word, trie.findWord(word));
-            });
+            if (arg) {
+                const exists = trie.findWord(arg);
+                ui.printFound(arg, exists);
+            }
             break;
+
         case "complete":
-            rl.question("Enter a prefix: ", (prefix) => {
-                ui.printSuggestions(prefix, trie.predictWord(prefix));
-            });
+            if (arg) {  
+                const suggestions = trie.predictWord(arg);
+                ui.printSuggestions(arg, suggestions);
+            }
             break;
+
         case "exit":
             ui.printExit();
-            rl.close();
+            running = false; // שובר את הלולאה ומסיים את התוכנית
             break;
+
         default:
             if (command !== "") {
                 console.log(`Unknown command: ${command}. Type 'help' for commands.\n`);
@@ -46,9 +51,3 @@ const handleInput = (input) => {
             break;
     }
 }
-
-handleInput(rl.question("> "));
-
-// rl.on('line', (input) => {
-//     handleInput(input);
-// });

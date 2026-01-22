@@ -35,16 +35,9 @@ export class AutoCompleteTrie {
             }
             current = current.children[char];
         }
-        return this._getRemainingTree(current);
-    }
-
-    _getRemainingTree(prefix, node) {
-        let current = node;
-        for (const char of prefix) {
-            if (!current.children[char]) return null;
-            current = current.children[char];
-        }
-        return current;
+        const allWords = [];
+        this._allWordsHelper(current, prefix, allWords);
+        return allWords;
     }
 
     _allWordsHelper(node, prefix, allWords) {
