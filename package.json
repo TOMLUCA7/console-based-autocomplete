@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "console-based-autocomplete",
+  "version": "1.0.0",
+  "description": "Build a console-based autocomplete application using a Trie (prefix tree) data structure. Your app will suggest word completions based on user input, similar to how search engines work.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TOMLUCA7/console-based-autocomplete.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TOMLUCA7/console-based-autocomplete/issues"
+  },
+  "homepage": "https://github.com/TOMLUCA7/console-based-autocomplete#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
