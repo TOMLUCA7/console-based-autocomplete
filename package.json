@@ -5,7 +5,7 @@
   "description": "Build a console-based autocomplete application using a Trie (prefix tree) data structure. Your app will suggest word completions based on user input, similar to how search engines work.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
