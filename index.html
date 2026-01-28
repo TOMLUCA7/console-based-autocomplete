@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocomplete Dictionary UI</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
+    <main class="w-full max-w-xl px-6">
+        <!-- Add word row -->
+        <div class="flex gap-3">
+            <input
+                type="text"
+                placeholder="Enter a word to add to dictionary"
+                class="flex-1 h-14 rounded-2xl border border-slate-200 bg-white px-4 text-slate-800 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+            >
+            <button
+                class="h-14 px-6 rounded-2xl bg-indigo-500 text-white text-base font-semibold shadow-sm hover:bg-indigo-600 active:bg-indigo-700 transition-colors"
+            >
+                Add Word
+            </button>
+        </div>
+
+        <!-- Autocomplete input -->
+        <div class="mt-10">
+            <input
+                type="text"
+                placeholder="Start typing to see suggestions..."
+                class="w-full h-16 rounded-2xl border border-slate-200 bg-white px-4 text-slate-800 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+            >
+        </div>
+
+        <!-- Dictionary count card -->
+        <section class="mt-10">
+            <div class="w-full rounded-3xl bg-slate-100 py-10 text-center shadow-inner">
+                <div class="text-5xl font-semibold text-indigo-500">0</div>
+                <div class="mt-2 text-slate-500 text-lg">Words in Dictionary</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
